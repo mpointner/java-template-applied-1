@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+group = 'at.ac.tgm'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "PASSED", "SKIPPED", "FAILED", "STANDARD_OUT", "STANDARD_ERROR"
+    }
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'at.ac.tgm.Main'
+        )
+    }
+}
